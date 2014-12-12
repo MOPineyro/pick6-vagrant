@@ -47,14 +47,10 @@ end
 script "install_rbenv" do
 	interpreter "bash"
 	code <<-EOH
-		git clone git://github.com/sstephenson/rbenv.git .rbenv
-		echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> .bash_profile
-		echo 'eval "$(rbenv init -)"' >> .bash_profile
-		source ~/.bash_profile
-		git clone git://github.com/sstephenson/ruby-build.git
-		cd ruby-build
-		sudo ./install.sh
-		ruby-build --definitions
+		wget -O ruby-install-0.5.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.5.0.tar.gz
+		tar -xzvf ruby-install-0.5.0.tar.gz
+		cd ruby-install-0.5.0/
+		sudo make install
 		source ~/.bash_profile
 	EOH
 end
@@ -65,8 +61,7 @@ end
 script "install_ruby" do
 	interpreter "bash"
 	code <<-EOH
-		rbenv install 2.1.3
-		rbenv rehash
+		ruby-install ruby 2.1.3
 	EOH
 end
 
