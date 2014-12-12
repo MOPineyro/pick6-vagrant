@@ -72,19 +72,19 @@ end
 # Install Bundler, build it against the newly installed 2.1 gem binary
 #
 gem_package 'bundler' do
-  gem_binary('/usr/bin/gem2.1')
+  action :install
 end
 
 #
 # Install yajl-ruby, required for re-provisioning Chef.
 #
 gem_package 'yajl-ruby' do
-  gem_binary('/usr/bin/gem2.1')
+  action :install
 end
 
 #
 # Install Rails.
 #
 gem_package 'rails' do
-  gem_binary('/usr/bin/gem2.1')
+  action :install
 end
