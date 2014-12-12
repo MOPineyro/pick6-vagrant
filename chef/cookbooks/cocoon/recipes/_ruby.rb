@@ -8,6 +8,17 @@
 #
 # Install Ruby Build Dependencies
 #
+package 'curl'
+package 'wget'
+package 'libssl-dev'
+package 'libyaml-dev'
+package 'libreadline-dev'
+package 'libreadline6'
+package 'libreadline6-dev'
+package 'zlib1g'
+package 'zlib1g-dev'
+package 'libcurl4-openssl-dev'
+
 package 'libxslt-dev'
 package 'libxml2-dev'
 package 'build-essential'
