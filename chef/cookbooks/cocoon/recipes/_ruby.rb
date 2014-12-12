@@ -51,7 +51,7 @@ script "install_ruby" do
 		tar -xzvf ruby-install-0.5.0.tar.gz
 		cd ruby-install-0.5.0/
 		sudo make install
-		ruby-install ruby 2.1.3
+		sudo ruby-install --system ruby 2.1.3
 	EOH
 end
 
