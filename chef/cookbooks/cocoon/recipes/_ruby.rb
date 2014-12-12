@@ -6,6 +6,13 @@
 #
 
 #
+# Update dependencies.
+#
+execute 'apt-get update' do
+  ignore_failure true
+end
+
+#
 # Install Ruby Build Dependencies
 #
 package 'curl'
@@ -35,13 +42,6 @@ package 'software-properties-common'
 #
 execute 'apt-add-repository ppa:brightbox/ruby-ng -y' do
   not_if 'which ruby | grep -c 2.1'
-end
-
-#
-# Update dependencies.
-#
-execute 'apt-get update' do
-  ignore_failure true
 end
 
 #
