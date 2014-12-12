@@ -32,8 +32,6 @@ package 'build-essential'
 package 'libpq-dev'
 package 'libsqlite3-dev'
 
-cookbook 'rbenv', git: 'https://github.com/fnichol/chef-rbenv'
-
 #
 # Add apt-add-repository.
 #
