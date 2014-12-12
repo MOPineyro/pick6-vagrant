@@ -51,7 +51,6 @@ script "install_rbenv" do
 		tar -xzvf ruby-install-0.5.0.tar.gz
 		cd ruby-install-0.5.0/
 		sudo make install
-		source ~/.bash_profile
 	EOH
 end
 
