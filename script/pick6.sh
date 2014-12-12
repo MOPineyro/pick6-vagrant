@@ -10,8 +10,8 @@ git clone https://github.com/Pick6Solutions/pick6.git
 cd pick6/rails
 bundle install
 rbenv rehash
-sudo -u postgres createuser --createdb vagrant
-cp -R config/database.sample.yml config/database.yml
+-u postgres createuser --createdb vagrant
+# cp -R config/database.sample.yml config/database.yml
 rake db:create
 rake db:migrate
 rake db:seed
