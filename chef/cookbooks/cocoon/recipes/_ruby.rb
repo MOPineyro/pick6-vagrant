@@ -47,8 +47,8 @@ end
 #
 # Install Ruby 2.1
 #
-package 'ruby2.1'
-package 'ruby2.1-dev'
+package 'ruby2.1.3'
+package 'ruby2.1.3-dev'
 
 #
 # Install Bundler, build it against the newly installed 2.1 gem binary
