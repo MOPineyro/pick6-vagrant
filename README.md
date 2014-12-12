@@ -17,7 +17,7 @@ machine."
 1. Clone this repo and cd into the directory
 
     ```bash
-    $ git clone git@github.com:mopineyro/cocoon.git
+    $ git clone git@github.com:mopineyro/pick6-vagrant.git
     $ cd cocoon
     ```
 
