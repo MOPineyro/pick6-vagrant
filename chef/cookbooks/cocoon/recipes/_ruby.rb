@@ -46,16 +46,17 @@ end
 
 script "install_rbenv" do
 	interpreter "bash"
-	  code <<-EOH
-	    git clone git://github.com/sstephenson/rbenv.git .rbenv
-	    sudo echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> .bash_profile
-	    sudo echo 'eval "$(rbenv init -)"' >> .bash_profile
-	    source ~/.bash_profile
-	    git clone git://github.com/sstephenson/ruby-build.git
-	    cd ruby-build
-	    sudo ./install.sh
-	    ruby-build --definitions
-	  EOH
+	code <<-EOH
+		git clone git://github.com/sstephenson/rbenv.git .rbenv
+		sudo echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> .bash_profile
+		sudo echo 'eval "$(rbenv init -)"' >> .bash_profile
+		source ~/.bash_profile
+		git clone git://github.com/sstephenson/ruby-build.git
+		cd ruby-build
+		sudo ./install.sh
+		ruby-build --definitions
+		source ~/.bash_profile
+	EOH
 end
 
 #
