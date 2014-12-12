@@ -46,7 +46,6 @@ end
 
 script "install_rbenv" do
 	interpreter "bash"
-	user "root"
 	  code <<-EOH
 	    git clone git://github.com/sstephenson/rbenv.git .rbenv
 	    sudo echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> .bash_profile
@@ -64,7 +63,6 @@ end
 #
 script "install_ruby" do
 	interpreter "bash"
-	user "root"
 	code <<-EOH
 		rbenv install 2.1.3
 		rbenv rehash
