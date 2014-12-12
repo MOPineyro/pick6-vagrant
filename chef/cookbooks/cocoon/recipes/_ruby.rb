@@ -52,8 +52,8 @@ script "install_ruby" do
 		cd ruby-install-0.5.0/
 		sudo make install
 		sudo ruby-install --system ruby 2.1.3
-		sudo gem install bundler --no-rdoc --no-ri
-		sudo gem install rails --no-rdoc --no-ri
+		sudo gem install bundler --no-document
+		sudo gem install rails --no-document
 	EOH
 end
 
