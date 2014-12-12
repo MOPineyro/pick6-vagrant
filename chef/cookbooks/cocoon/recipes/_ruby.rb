@@ -45,16 +45,18 @@ execute 'apt-add-repository ppa:brightbox/ruby-ng -y' do
 end
 
 script "install_rbenv" do
-  code <<-EOH
-    git clone git://github.com/sstephenson/rbenv.git .rbenv
-    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> .bash_profile
-    echo 'eval "$(rbenv init -)"' >> .bash_profile
-    source ~/.bash_profile
-    git clone git://github.com/sstephenson/ruby-build.git
-    cd ruby-build
-    sudo ./install.sh
-    ruby-build --definitions
-  EOH
+	interpreter "bash"
+	user "root"
+	  code <<-EOH
+	    git clone git://github.com/sstephenson/rbenv.git .rbenv
+	    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> .bash_profile
+	    echo 'eval "$(rbenv init -)"' >> .bash_profile
+	    source ~/.bash_profile
+	    git clone git://github.com/sstephenson/ruby-build.git
+	    cd ruby-build
+	    sudo ./install.sh
+	    ruby-build --definitions
+	  EOH
 end
 
 #
