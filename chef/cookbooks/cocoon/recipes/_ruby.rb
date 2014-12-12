@@ -49,8 +49,8 @@ script "install_rbenv" do
 	user "root"
 	  code <<-EOH
 	    git clone git://github.com/sstephenson/rbenv.git .rbenv
-	    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> .bash_profile
-	    echo 'eval "$(rbenv init -)"' >> .bash_profile
+	    sudo echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> .bash_profile
+	    sudo echo 'eval "$(rbenv init -)"' >> .bash_profile
 	    source ~/.bash_profile
 	    git clone git://github.com/sstephenson/ruby-build.git
 	    cd ruby-build
@@ -63,6 +63,8 @@ end
 # Install Ruby 2.1
 #
 script "install_ruby" do
+	interpreter "bash"
+	user "root"
 	code <<-EOH
 		rbenv install 2.1.3
 		rbenv rehash
