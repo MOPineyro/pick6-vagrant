@@ -32,6 +32,8 @@ package 'build-essential'
 package 'libpq-dev'
 package 'libsqlite3-dev'
 
+cookbook 'rbenv', git: 'https://github.com/fnichol/chef-rbenv'
+
 #
 # Add apt-add-repository.
 #
@@ -44,11 +46,31 @@ execute 'apt-add-repository ppa:brightbox/ruby-ng -y' do
   not_if 'which ruby | grep -c 2.1'
 end
 
+script "install_rbenv" do
+  code <<-EOH
+    git clone git://github.com/sstephenson/rbenv.git .rbenv
+    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> .bash_profile
+    echo 'eval "$(rbenv init -)"' >> .bash_profile
+    source ~/.bash_profile
+    git clone git://github.com/sstephenson/ruby-build.git
+    cd ruby-build
+    sudo ./install.sh
+    ruby-build --definitions
+  EOH
+end
+
 #
 # Install Ruby 2.1
 #
-package 'ruby2.1.3'
-package 'ruby2.1.3-dev'
+script "install_ruby" do
+	code <<-EOH
+		rbenv install 2.1.3
+		rbenv rehash
+	EOH
+end
+
+# package 'ruby2.1'
+# package 'ruby2.1-dev'
 
 #
 # Install Bundler, build it against the newly installed 2.1 gem binary
