@@ -44,25 +44,26 @@ execute 'apt-add-repository ppa:brightbox/ruby-ng -y' do
   not_if 'which ruby | grep -c 2.1'
 end
 
-script "install_rbenv" do
+script "install_ruby" do
 	interpreter "bash"
 	code <<-EOH
 		wget -O ruby-install-0.5.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.5.0.tar.gz
 		tar -xzvf ruby-install-0.5.0.tar.gz
 		cd ruby-install-0.5.0/
 		sudo make install
+		ruby-install ruby 2.1.3
 	EOH
 end
 
 #
 # Install Ruby 2.1
 #
-script "install_ruby" do
-	interpreter "bash"
-	code <<-EOH
-		ruby-install ruby 2.1.3
-	EOH
-end
+# script "install_ruby" do
+# 	interpreter "bash"
+# 	code <<-EOH
+		
+# 	EOH
+# end
 
 # package 'ruby2.1'
 # package 'ruby2.1-dev'
