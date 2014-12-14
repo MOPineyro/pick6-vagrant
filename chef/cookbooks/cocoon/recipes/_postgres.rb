@@ -11,8 +11,6 @@
 package 'postgresql'
 package 'postgresql-contrib'
 
-sudo sed -i "s/%admin ALL=\(ALL\)\ ALL/%admin ALL=\(ALL\) NOPASSWD:ALL/" /etc/sudoers
-
 #
 # Create a Postgres user.
 #
