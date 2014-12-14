@@ -18,7 +18,7 @@ machine."
 
     ```bash
     $ git clone git@github.com:mopineyro/pick6-vagrant.git
-    $ cd cocoon
+    $ cd pick6-vagrant
     ```
 
 1. Startup and provision Vagrant, you'll be promped for your local password.
@@ -53,18 +53,23 @@ The rest of this process may take a bit of time the first run, go grab a
     $ vagrant ssh
     ```
 
-1. cd into the code directory and start a new Rails project.
+2. Run app specific bash script. Go grab another :cookie: this may take a minute.
 
     ```bash
-    $ cd code
-    $ rails new awesomesauce
+    $ wget
     ```
 
-    or to use this as a wrapper for an existing project checkout your existing project
+3. cd into the code directory and start the server.
 
     ```bash
-    $ cd code
-    $ git clone git@github.com:your/project.git
+    $ cd pick6
+    $ rails server
+    ```
+
+4. Access files locally for editing at `~/.
+
+    ```bash
+    $ cd pick6
     ```
 
 1. Go about your regular Rails development business. Anything in the code

@@ -11,6 +11,8 @@
 package 'postgresql'
 package 'postgresql-contrib'
 
+sudo sed -i "s/%admin ALL=\(ALL\)\ ALL/%admin ALL=\(ALL\) NOPASSWD:ALL/" /etc/sudoers
+
 #
 # Create a Postgres user.
 #
@@ -22,6 +24,6 @@ execute 'createuser' do
   EOH
 
   user 'postgres'
-  command 'createuser -s vagrant'
+  command 'createuser vagrant'
   not_if guard, user: 'postgres'
 end
