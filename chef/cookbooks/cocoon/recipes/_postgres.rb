@@ -24,4 +24,7 @@ execute 'createuser' do
   user 'postgres'
   command 'createuser vagrant'
   not_if guard, user: 'postgres'
+  psql << EOF
+  	ALTER ROLE vagrant CREATEDB;
+  EOF
 end

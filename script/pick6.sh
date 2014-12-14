@@ -6,6 +6,7 @@
 # export PATH="${RBENV_ROOT}/bin:${PATH}"
 # export PATH="${RBENV_ROOT}/shims:${PATH}"
 
+cd /home/vagrant/code
 git clone https://github.com/Pick6Solutions/pick6.git
 cd pick6/rails
 bundle install
