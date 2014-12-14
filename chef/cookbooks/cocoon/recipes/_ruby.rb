@@ -52,8 +52,6 @@ script "install_ruby" do
 		cd ruby-install-0.5.0/
 		sudo make install
 		sudo ruby-install --system ruby 2.1.3
-		sudo gem install bundler --no-document
-		sudo gem install rails --no-document
 	EOH
 end
 
@@ -73,9 +71,9 @@ end
 #
 # Install Bundler, build it against the newly installed 2.1 gem binary
 #
-# gem_package 'bundler' do
-#   action :install
-# end
+gem_package 'bundler' do
+  action :install
+end
 
 #
 # Install yajl-ruby, required for re-provisioning Chef.
@@ -87,6 +85,6 @@ end
 #
 # Install Rails.
 #
-# gem_package 'rails' do
-#   action :install
-# end
+gem_package 'rails' do
+  action :install
+end
