@@ -53,6 +53,15 @@ The rest of this process may take a bit of time the first run, go grab a
     $ vagrant ssh
     ```
 
+2. Give vagrant user DB create permissions.
+    ```bash
+        $ sudo su postgres
+        $ psql
+        postgres=# ALTER ROLE vagrant CREATEDB;
+        postgres=# \q
+        $ exit
+    ```
+
 2. Run app specific bash script. Go grab another :cookie: this may take a minute.
 
     ```bash
